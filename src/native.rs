@@ -451,6 +451,16 @@ impl HasContext for Context {
         );
     }
 
+    unsafe fn buffer_data_f32_slice(&self, target: u32, data: &[f32], usage: u32) {
+        let gl = &self.raw;
+        gl.BufferData(
+            target,
+            data.len() as isize,
+            data.as_ptr() as *const std::ffi::c_void,
+            usage,
+        );
+    }
+
     unsafe fn buffer_sub_data_u8_slice(&self, target: u32, offset: i32, src_data: &[u8]) {
         let gl = &self.raw;
         gl.BufferSubData(

@@ -212,6 +212,8 @@ pub trait HasContext {
 
     unsafe fn buffer_data_u8_slice(&self, target: u32, data: &[u8], usage: u32);
 
+    unsafe fn buffer_data_f32_slice(&self, target: u32, data: &[f32], usage: u32);
+
     unsafe fn buffer_sub_data_u8_slice(&self, target: u32, offset: i32, src_data: &[u8]);
 
     unsafe fn get_buffer_sub_data(&self, target: u32, offset: i32, dst_data: &mut [u8]);
